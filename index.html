@@ -1,0 +1,90 @@
+<<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Clicker Game</title>
+<style>
+
+  body {
+    background-color: black;
+    text-align: center;
+  }
+
+  h1 {
+    color: green;
+  }
+
+h2 {
+  color: blue
+}
+p {
+  color: white;
+  font-size: 1.3cm
+}
+
+img {
+color: white;
+border: 1px solid darkgreen;
+border-radius: 10px;
+padding: 15px;
+}
+
+img:hover {
+  color: white;
+  border: 3px solid maroon;
+  border-radius: 10px;
+  padding: 15px;
+}
+</style>
+
+  </head>
+
+  <body>
+
+    <h1> Welcome to the clicker game</h1>
+
+ <p> Click the button to get a higher score!</p>
+ <p id="scoreText">Score: 0</p>
+
+<button id="score">Click!</button>
+
+<h2>Store</h2>
+<p>Clicker: 10 clicks</p>
+<img src="cursor_image.png" alt="clicker" width="60px" id= "buy">
+<p id="clicker">x1</p>
+
+<p>Auto Clicker: 100 clicks</p>
+<img src="auto-clicker.png" alt="auto-clicker" width="60px" id="auto-clicker">
+<p id="auto-clicker-text">x0</p>
+<script>
+
+let score= 0;
+let clickers= 1;
+let auto_clicker = 0;
+
+  document.getElementById("score").addEventListener("click", function () {
+  score = score + clickers;
+  document.getElementById("scoreText").innerText = "Score:" + score;
+});
+
+document.getElementById("buy").addEventListener("click", function () {
+if (score >= 10) {
+  clickers = clickers + 1;
+  score = score - 10;
+  document.getElementById("clicker").innnerText = "x " + clickers;
+  document.getElementById("scoreText").innerText = "Score:" + score;
+}
+});
+
+document.getElementById("auto-clicker").addEventListener("clicker", function () {
+  if (score >= 100) {
+    auto_clicker = auto_clicker + 1;
+    score = score - 100;
+    document.getElementById("scoreText").innerText = "Score: " + score;
+    document.getElementById("auto-clicker-text").innerText = "x" + auto_clicker;
+  }
+});
+</script>
+  </body>
+
+</html>
